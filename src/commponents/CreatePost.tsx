@@ -10,7 +10,7 @@ export default function CreatePost() {
   const session=window.localStorage
   const accessToken=session.accessToken
     const [title,setTitle]=useState("")
-    const [image,setimage]=useState("")
+    const [image,setimage]=useState<any>("")
     const [text,setText]=useState("")
     const [id,setId]=useState()
     const [isLoading,setLoading]=useState(false)
