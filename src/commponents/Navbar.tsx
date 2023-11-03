@@ -23,7 +23,7 @@ export default function Navbar() {
          </NavLink>):( <img src={logo} alt="Logo" className="ml-5  w-16 h-16 rounded-full" />)}
       </div>
         {accessToken?(
-          <div className="ml-auto grid grid-cols-3 md:gap-5">
+          <div className="ml-auto grid grid-cols-3 gap-5 mr-10">
               <NavLink
            to="/"
            className={({ isActive, isPending }) =>
