@@ -79,7 +79,7 @@ const postData=async()=>{
       
        <button className="flex w-32 py-2 mt-5 bg-slate-700 hover:outline hover:bg-transparent justify-center  rounded-full align-middle" onClick={()=>postData()}>{isLoading?(<Progress />):(<h1>save changs</h1>)}</button>
       {id?(<div className="md:flex mx-3 md:items-center ">
-        <Link  className="text-blue-600 mt-3 mr-5" to={`/allpost/${id}`}>http://localhost:5173/allpost/{id}
+        <Link  className="text-blue-600 mt-3 mr-5" to={`/allpost/${id}`}>https://semntun-beterik.onrender.com/allpost/{id}
       </Link> <ContentCopyIcon  onClick={handleCopy} className=' cursor-pointer transition ease-in-out delay-150
            hover:-translate-y-1 hover:scale-110 hover:border-sky-600 duration-300  shadow-xl'/></div> ):null}
       </div>
