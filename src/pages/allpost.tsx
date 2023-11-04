@@ -43,8 +43,8 @@ const handlemutate=(id)=>{
         {posts?.map((post)=>{
         
         return(
-          <div    className="text-semiwhite bg-bray border-2 rounded-lg transition ease-in-out delay-150
-           hover:-translate-y-1 hover:scale-110 hover:border-sky-600 duration-300  shadow-xl">
+          <div    className="text-semiwhite bg-bray border-2 rounded-lg md:transition md:ease-in-out md:delay-150
+           md:hover:-translate-y-1 md:hover:scale-110 hover:border-sky-600 md:duration-300  shadow-xl">
           <h1 className="text-left my-3 mx-5 font-serif font-bold">{post.title}</h1>
           <p  onClick={()=>handler(post.id)} className="text-left my-3 mx-5 font-mono font-semibold">{post.content.slice(0, 100)} <span className='text-sky-500'> ...</span></p>
            <div className='flex justify-end  gap-5'>

@@ -50,9 +50,9 @@ const{title,content,img}=postQuery.data
       {
        img?(<img  className="h-96 w-auto mx-auto " src={img} alt="img" />):(null)
       }
-         <p className="text-justify my-5 leading-relaxed font-semibold">
+         <pre className="text-justify  indent-8  my-5  tracking-tight leading-4 break-all">
            {content}
-            </p>
+            </pre>
          </div>
        
        )}

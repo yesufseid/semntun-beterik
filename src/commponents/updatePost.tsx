@@ -74,7 +74,7 @@ const postData=async()=>{
      <input type="file"  id="file" className="my-5 invisible " onChange={e=>fileUplode(e)}   />
    </div>
    }
-      <textarea className="text-justify my-5 leading-relaxed font-semibold w-80  md:w-full  h-screen md:h-96"  defaultValue={text} onChange={e=>setText(e.target.value)}/>
+      <textarea className="text-justify my-5 leading-relaxed font-semibold w-80  md:w-full  h-screen"  defaultValue={text} onChange={e=>setText(e.target.value)}/>
       </div >
       
        <button className="flex w-32 py-2 mt-5 bg-slate-700 hover:outline hover:bg-transparent justify-center  rounded-full align-middle" onClick={()=>postData()}>{isLoading?(<Progress />):(<h1>save changs</h1>)}</button>

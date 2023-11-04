@@ -3,7 +3,6 @@ import logo from "../assets/avatar-1001305737882.jpg"
 import { NavLink } from "react-router-dom";
 
 
-
 export default function Navbar() {
   const session=window.localStorage
   const accessToken=session.accessToken
@@ -11,7 +10,7 @@ export default function Navbar() {
 
 
   return (
-    <div className="flex md:px-10  py-2 bg-slate-400 font-serif items-center ">
+    <div className="flex md:px-10  py-2 bg-slate-400 font-serif items-center">
       <div>
         {accessToken?( <NavLink
            to="/"
@@ -23,7 +22,7 @@ export default function Navbar() {
          </NavLink>):( <img src={logo} alt="Logo" className="ml-5  w-16 h-16 rounded-full" />)}
       </div>
         {accessToken?(
-          <div className="ml-auto grid grid-cols-3 gap-5 mr-10">
+          <div className="md:ml-auto ml-10 grid grid-cols-3 md:gap-5 gap-3 md:mr-10 ">
               <NavLink
            to="/"
            className={({ isActive, isPending }) =>
