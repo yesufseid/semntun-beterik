@@ -32,7 +32,7 @@ const{title,content,img}=postQuery.data
 
 
   return (
-    <div className="bg-white text-black">
+    <div className="bg-white text-black  h-screen ">
       <Navbar />
       {accessToken?( <h1  onClick={()=>setEdit((prev)=>!prev)} className="text-end w-10 ml-auto my-5 mr-5">
        <EditIcon  className='cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 
@@ -48,9 +48,8 @@ const{title,content,img}=postQuery.data
          <h1 className="my-5 font-semibold text-5xl text-left "
          >{title}</h1>
       {
-       img?(<img  className="h-96 w-auto mx-auto " src={img} alt="img" />):(null)
-      }
-         <pre className="text-justify  indent-8  my-5  tracking-tight leading-4 break-all">
+       img?(<img  className="h-96 w-auto mx-auto " src={img} alt="img" />):(null)      }
+         <pre className="text-justify  indent-8  my-5  tracking-tight leading-4  overflow-scroll" >
            {content}
             </pre>
          </div>
