@@ -1,7 +1,5 @@
 
 import { useState } from "react"
-import { Link,} from "react-router-dom"
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Progress from "./progress";
 import Error from "../pages/error";
 
@@ -12,14 +10,10 @@ export default function Home({ids,titles,img,content}) {
     const [title,setTitle]=useState(titles)
     const [image,setimage]=useState(img)
     const [text,setText]=useState(content)
-    const [id,setId]=useState()
     const [isLoading,setLoading]=useState(false)
 
 
 
-    const handleCopy=()=>{
-      navigator.clipboard.writeText("https://semntun-beterik-api.onrender.com/allpost/"+id)
-   }
 
 const fileUplode=async(e)=>{
     const file=e.target.files[0]
@@ -49,9 +43,8 @@ const postData=async()=>{
   if(!res.ok) return <Error />
   
   if(res.ok){
-    const post=await res.json()
-      
-    return setId(post.id)
+    const post=await res.json()  
+    return console.log(post.id)
   }
  
 
@@ -66,7 +59,7 @@ const postData=async()=>{
     <div>
       <div className="px-5 text-center">
           
-      <input type="text" className="my-5 font-semibold text-5xl text-center focus:border-green-600  md:w-full w-80 " defaultValue={title}  onChange={(e)=>setTitle(e.target.value)}
+      <input type="text" className="my-5 font-semibold md:text-5xl   text-xl  text-center focus:border-green-600  md:w-full w-80 " defaultValue={title}  onChange={(e)=>setTitle(e.target.value)}
        />
    {
      <div>
@@ -78,10 +71,7 @@ const postData=async()=>{
       </div >
       
        <button className="flex w-32 py-2 mt-5 bg-slate-700 hover:outline hover:bg-transparent justify-center  rounded-full align-middle" onClick={()=>postData()}>{isLoading?(<Progress />):(<h1>save changs</h1>)}</button>
-      {id?(<div className="md:flex mx-3 md:items-center ">
-        <Link  className="text-blue-600 mt-3 mr-5" to={`/allpost/${id}`}>https://semntun-beterik.onrender.com/allpost/{id}
-      </Link> <ContentCopyIcon  onClick={handleCopy} className=' cursor-pointer transition ease-in-out delay-150
-           hover:-translate-y-1 hover:scale-110 hover:border-sky-600 duration-300  shadow-xl'/></div> ):null}
+     
       </div>
   )
 }
