@@ -6,8 +6,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useState } from "react";
 import Loading from './loading';
 import Error from "./error";
-import { Link,} from "react-router-dom"
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+
 
 export default function Home() {
   const session=window.localStorage
@@ -32,10 +31,7 @@ const getPost=async()=>{
 const{title,content,img}=postQuery.data
 
 
-const handleCopy=(text)=>{
-  const conten=text.slice(0,500)
-  navigator.clipboard.writeText(conten + "    see more...       " + "https://semntun-beterik-api.onrender.com/allpost/"+id)
-}
+
 
   return (
     <div className="bg-white text-black  h-screen ">
@@ -62,11 +58,6 @@ const handleCopy=(text)=>{
        
        )}
        </div>
-      {accessToken?(
-       <div className="md:flex mx-3 md:items-center ">
-        <Link  className="text-blue-600 mt-3 mr-5" to={`/allpost/${id}`}>https://semntun-beterik.onrender.com/allpost/{id}
-      </Link> <ContentCopyIcon  onClick={()=>handleCopy(content)} className=' cursor-pointer transition ease-in-out delay-150
-           hover:-translate-y-1 hover:scale-110 hover:border-sky-600 duration-300  shadow-xl'/></div>):null}
     </div>
   )
 }

@@ -23,7 +23,7 @@ const fileUplode=async(e)=>{
 
 const handleCopy=(text)=>{
   const content=text.slice(0,500)
-   navigator.clipboard.writeText(content + "https://semntun-beterik.onrender.com/allpost/"+id)
+   navigator.clipboard.writeText(content +"   see more ...   "+"https://semntun-beterik.onrender.com/allpost/"+id)
 }
 
 

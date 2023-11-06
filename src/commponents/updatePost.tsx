@@ -2,17 +2,22 @@
 import { useState } from "react"
 import Progress from "./progress";
 import Error from "../pages/error";
-
+import { Link,} from "react-router-dom"
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 export default function Home({ids,titles,img,content}) {
   const session=window.localStorage
   const accessToken=session.accessToken
     const [title,setTitle]=useState(titles)
     const [image,setimage]=useState(img)
+    const [id,setId]=useState("")
     const [text,setText]=useState(content)
     const [isLoading,setLoading]=useState(false)
 
-
+    const handleCopy=(text)=>{
+      const conten=text.slice(0,500)
+      navigator.clipboard.writeText(conten + "    see more...       "+"https://semntun-beterik-api.onrender.com/allpost/"+id)
+    }
 
 
 const fileUplode=async(e)=>{
@@ -44,7 +49,7 @@ const postData=async()=>{
   
   if(res.ok){
     const post=await res.json()  
-    return console.log(post.id)
+    return setId(post.id)
   }
  
 
@@ -71,7 +76,11 @@ const postData=async()=>{
       </div >
       
        <button className="flex w-32 py-2 mt-5 bg-slate-700 hover:outline hover:bg-transparent justify-center  rounded-full align-middle" onClick={()=>postData()}>{isLoading?(<Progress />):(<h1>save changs</h1>)}</button>
-     
+       {id?(
+       <div className="md:flex mx-3 md:items-center ">
+        <Link  className="text-blue-600 mt-3 mr-5" to={`/allpost/${id}`}>https://semntun-beterik.onrender.com/allpost/{id}
+      </Link> <ContentCopyIcon  onClick={()=>handleCopy(content)} className=' cursor-pointer transition ease-in-out delay-150
+           hover:-translate-y-1 hover:scale-110 hover:border-sky-600 duration-300  shadow-xl'/></div>):null}
       </div>
   )
 }
